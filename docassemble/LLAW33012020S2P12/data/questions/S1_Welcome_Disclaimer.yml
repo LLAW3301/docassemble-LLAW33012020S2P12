@@ -1,1 +1,23 @@
-j
+---
+# Mandatory code block that will drive the entire application
+mandatory: True
+code: |
+  HKdisplay_welcome_screen
+---
+code: |
+  HKdisplay_welcome_screen = True
+  force_ask('HKwelcome_screen')
+---
+event: HKwelcome_screen
+question: Welcome!
+subquestion: |
+  Welcome to the St Vincent de Paul Crisis Centre Application! 
+  
+  This application will help you with legal aid services, court resources/contacts and identification documents. 
+  
+  **Please note that this application is not legal advice, and you should seek advice from professionals to ensure accuracy in resolving your legal issues.**
+buttons:
+  - I accept: continue
+  - I do not accept: exit
+    url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
+---
