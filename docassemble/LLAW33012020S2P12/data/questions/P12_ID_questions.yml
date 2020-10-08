@@ -1,0 +1,60 @@
+---
+#to determine whether or not the men have any type of ID docs
+mandatory: True
+question:  Identification Documents
+subquestion:  |
+
+  ***Do you have any of the following options?***
+
+fields:
+  - no label: P12_ID
+    datatype: checkboxes
+    choices:
+      - Medicare Card
+      - Passport
+      - Drivers Licence
+      - Proof of Age card
+      - Birth Certificate
+      - Seniors Card
+      - Tax File Number
+      - Bank Statements
+      - Utility Bills
+---
+#to determine what ID docs the men would like to apply for - also unless they have a bank we may not be able to help them get statements(but most people should and can get their statements by speaking to their bank) and we may not be able to help them apply for utility bills
+question: Which of the follow would you like to apply for?
+fields:
+  - no label: P12_Apply
+    datatype: radio
+    choices:
+      - Medicare Card
+      - Passport
+      - Drivers Licence
+      - Proof of Age card
+      - Birth Certificate
+      - Seniors Card
+      - Tax File Number
+      - Bank Statements
+
+---
+#this could be shown as a show if something is selected rather than an end screen
+
+question: You have selected that you have some identification documents
+subquestion: |
+  *Would you like extra support from a statutory declaration?*
+
+buttons:
+  - Yes: Continue
+  - No: Exit
+---
+#this could be shown as a show if something is selected rather than an end screen
+
+question: | You have selected that you have no prior identification documents
+subquestion: |
+  You will need to either go to Centrelink for a temporary medicare/health card, or fill out a statutory declaration.
+  
+  Would you like us to help you fill out a statutory declaration?
+  
+buttons:
+  - Yes: Continue
+  - No: Exit
+---
