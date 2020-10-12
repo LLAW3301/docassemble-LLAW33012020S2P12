@@ -1,0 +1,34 @@
+---
+code: |
+  for HKa_pet_info in HKpet_info:  
+    
+    if HKselected_pet_info in HKa_pet_info['Pet Report Choice']:
+      HKpet_love = True
+    else: 
+      HKpet_love = False
+    
+    if HKselected_pet_info in HKa_pet_info['Pet Report Choice']:
+      HKpet_hate = True
+    else: 
+      HKpet_hate = False
+    
+    if HKselected_pet_info in HKa_pet_info['Pet Report Choice']:
+      HKpet_all = True
+    else: 
+      HKpet_all = False        
+    
+    if HKpet_love or HKpet_hate or HKpet_all:
+      HKselected_info.append(HKa_pet_info)
+     
+  if HKfamily_member == 'Yes':
+    for HKa_pet_info in HKpet_info:
+      if HKfamily_member_choice in HKa_pet_info['Family Member Choice']:
+        HKfamily_member_same = True
+      else:
+        HKfamily_member_same = False    
+    
+      if HKfamily_member_same:
+        HKselected_info.remove(HKa_pet_info)
+   
+  HKselected_info.gathered = True
+---
