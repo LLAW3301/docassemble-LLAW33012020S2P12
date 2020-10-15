@@ -1,0 +1,131 @@
+---
+include:
+  - S1_ID_questions.yml
+  - S1_Main.yml
+  - S1Need_Want_Identifier.yml
+---
+event: P12report_endpoint
+question: Your Information
+subquestion: |
+  # Identity Document Information:
+  
+  % if P12identity_have.any_true():
+  You have indicated that you currently have a ${P12identity_have.true_values()}. You wish to apply for a ${P12identity_want.true_values()}. 
+  
+  % else:
+  You have indicated that you do not have any identity documents. You wish to apply for a ${P12identity_want.true_values()}.
+  % endif
+  
+  # Statutory Declaration Information:
+  
+  Topic | Your Answer
+  ---------|-----------
+  Full Name | ${STVinniesFullName}
+  Address | ${STVinniesAddress}
+  Occupation | ${STVinniesOccupation}
+ 
+  If you have realised that some information is incorrect, you can download the editable word document version below. Once you are satisfied that the above information is correct, you are able to download a copy of the completed form in the below box. If you would like to email yourself a copy, you can do so in the box below. 
+  
+  Your Statutory Declaration will need to be signed by a **Justice of the Peace**. Please click [here](https://www.sa.gov.au/topics/rights-and-law/rights-and-responsibilities/justices-of-the-peace/find-a-jp) to find one close to you.
+  
+  **Before finalising the Statutory Declaration, we recommend that you seek legal advice to ensure the accuracy and truth of the document. You can click here [link P06] to seek free legal aid services.**
+
+  % if P12identity_want['Medicare Card']:
+  
+  # Medicare Card
+ 
+  You already have ${P12what_I_have['Medicare Card']}.
+  
+  At a basic level, you will need ${P12what_I_need['Medicare Card']}.
+  
+  More detailed instructions on the process of enrollment and what you will need for your specific circumstances can be found [here.](https://www.servicesaustralia.gov.au/individuals/subjects/how-enrol-and-get-started-medicare/enrolling-medicare) Note that there are also specific processes to aid Indigenous people through the enrollment. If you have queries about anything to do with enrollment you can call Medicare on 132 011. We recommend that you begin by filling out this [form](https://www.servicesaustralia.gov.au/individuals/forms/ms004) to start the application process.
+  % endif  
+  % if P12identity_want['Passport']:
+  
+  # Passport
+  
+  You already have ${P12what_I_have['Passport']}.
+  
+  At a basic level, you will need ${P12what_I_need['Passport']}.
+  
+  More detailed instructions on the process of applying for a passport and what you will need for your specific circumstances can be found [here.](https://www.passports.gov.au/getting-passport-how-it-works) If you have issues or enquiries about the process you can call 131 232. We recommend starting this application process by signing up with [AusPassport](https://online.passports.gov.au/Infiniti/Produce/Account/Login?ReturnUrl=%2FInfiniti%2FProduce%2Fwizard%2F8100b655-57b0-47fb-84c2-44fdbbb02c02%2F)  
+  % endif   
+  % if P12identity_want['Drivers Licence']:
+  
+  # Drivers Licence
+  
+  You already have ${P12what_I_have['Drivers Licence']}.
+  
+  At a basic level, you will need ${P12what_I_need['Drivers Licence']}.
+  
+  If you have had a Drivers Licence before, you will need your Drivers Licence Number in order to apply for a replacement. If you require application for a Learner Permit, you need to have  either one primary and two secondary documents, or two primary with one secondary documents. Please visit this [website](https://www.sa.gov.au/topics/driving-and-transport/licences/tests/evidence-of-identity) to see what is accepted as 'primary' and 'secondary' identification. More information about applying for drivers licences generally can be found [here.](https://www.sa.gov.au/topics/driving-and-transport/licences) If you have urgent queries, you can call 131 232.
+  % endif 
+  % if P12identity_want['Proof of Age Card']:
+  
+  # Proof of Age Card
+  
+  You already have ${P12what_I_have['Proof of Age Card']}.
+  
+  At a basic level, you will need ${P12what_I_need['Proof of Age Card']}.
+  
+  You can apply via the online [portal.](https://www.sa.gov.au/topics/driving-and-transport/licences/proof-of-age-card) If your ID has not yet been established with Services SA, you will need to apply for the card in person at Service SA. Please click [here](https://www.sa.gov.au/topics/driving-and-transport/licences/proof-of-age-card) for further information or contact Service SA via their online [platform.](https://www.sa.gov.au/contact-us>platform)
+  % endif   
+  % if P12identity_want['Birth Certificate']:
+  
+  # Birth Certificate
+  
+  You already have ${P12what_I_have['Birth Certificate']}.
+  
+  At a basic level, you will need ${P12what_I_need['Birth Certificate']}.
+  
+  Service SA allows for a variety of combination of identity documents in order to obtain a Birth Certificate:
+     - Two documents from list 1;
+     - One document from list 1 and one document from either list 2 or 3;
+     - One document from list 2 and two documents from list 3; or
+     - Three documents from list 3.
+    Please click [here](https://www.sa.gov.au/contact-us) for the documents contained in each list. If you have issues or enquiries, you can contact Service SA via their online [portal.](https://www.sa.gov.au/contact-us)
+  % endif 
+  % if P12identity_want['Seniors Card']:
+  
+  # Seniors Card
+  
+  You already have ${P12what_I_have['Seniors Card']}.
+  
+  At a basic level, you will need ${P12what_I_need['Seniors Card']}.
+  
+  This card is issued **free of charge**. Please click [here](https://www.sa.gov.au/topics/family-and-community/seniors/seniors-card/apply-for-a-seniors-card) for further information. If you have issues or enquiries, you can also call 1800 819 961.
+  % endif 
+  % if P12identity_want['Tax File Number']:
+  
+  # Tax File Number
+  
+  You already have ${P12what_I_have['Tax File Number']}.
+  
+  At a basic level, you will need ${P12what_I_need['Tax File Number']}.
+  
+  If you are **over 16 years old**, you will need three documents, one of which must be a primary source of identity. You can present a maximum of two secondary documents. 
+    
+  If you are **under 16 years old**, you will only need two documents, one of which much be primary. 
+    
+  Please click [here](https://identityservice.auspost.com.au/ato/requirements/identityDocs) for what is accepted as 'primary' and 'secondary' sources of identity. An application can be made through a local Australia Post or online via the Australian Tax Office protal; please click [here](https://www.ato.gov.au/individuals/tax-file-number/apply-for-a-tfn/australian-residents---tfn-application/) for further information on the step by step processes. If you have any issues or enquiries, please call 13 28 61.
+  % endif  
+  % if P12identity_want['Bank Statements']:
+  
+  # Bank Statements
+  
+  You already have ${P12what_I_have['Bank Statements']}.
+  
+  At a basic level, you will need ${P12what_I_need['Bank Statements']}.
+  
+  The process of obtaining a Bank Statement depends on your bank and their processes. We recommend you get in touch with your bank to arrange this.
+  
+  % endif
+
+attachment: 
+ docx template file: south_australian_statutory_declaration_jinja.docx
+ 
+buttons:
+  - Exit: exit
+    url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
+  - Restart: restart
+---
