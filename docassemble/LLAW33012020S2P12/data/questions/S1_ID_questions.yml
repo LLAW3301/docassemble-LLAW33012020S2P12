@@ -1,0 +1,73 @@
+---
+#to determine whether or not the men have any type of ID docs
+decoration: id current
+question: Identification Documents
+subquestion:  |
+  ***Do you have any of the following?***
+fields:
+  - no label: P12identity_have
+    datatype: checkboxes
+    choices:
+      - "[FILE SAlicence.jpg, 2in] Drivers Licence"
+      - "[FILE poac.jpg, 2in] Proof of Age Card"
+      - "[FILE seniors.jpg, 2in] Seniors Card"
+      - "[FILE tfn.png, 2in] Tax File Number"
+      - "[FILE bc.gif, 1in] Birth Certificate"
+      - "[FILE passport.jpg, 1in] Passport"
+      - "[FILE medicare.jpg, 2in] Medicare Card"
+      - "[FILE chc.png, 2in] Centrelink Health Care Card"
+      - "[FILE statement.png, 2in] Bank Statement"
+      - "[FILE bills.png, 2in] Utility Bills"
+---
+#to determine what ID docs the men would like to apply for - also unless they have a bank we may not be able to help them get statements(but most people should and can get their statements by speaking to their bank) and we may not be able to help them apply for utility bills
+decoration: id want
+question: Identification Documents
+subquestion: |
+  ***Which of the following would you like to apply for?***
+fields:
+ - no label: P12identity_want
+   datatype: checkboxes
+   choices:
+      - "[FILE SAlicence.jpg, 2in] Drivers Licence"
+      - "[FILE poac.jpg, 2in] Proof of Age Card"
+      - "[FILE seniors.jpg, 2in] Seniors Card"
+      - "[FILE tfn.png, 2in] Tax File Number"
+      - "[FILE bc.gif, 1in] Birth Certificate"
+      - "[FILE passport.jpg, 1in] Passport"
+      - "[FILE medicare.jpg, 2in] Medicare Card"
+      - "[FILE chc.png, 2in] Centrelink Health Care Card"  
+      - "[FILE statement.png, 2in] Bank Statement"
+   
+---
+## Image files.
+images:
+ passport: passport.jpg
+ proof of age card: poac.jpg
+ seniors card: seniors.jpg
+ tax file number: tfn.png
+ drivers licence: SAlicence.jpg
+ medicare card: medicare.jpg
+ centrelink health care card: chc.png
+ birth certificate: bc.gif
+ bank statement: bstatement.png
+ utility bills: bills.png
+---
+question: Statutory Declaration
+subquestion: Please fill in the following information for a statutory declaration. Please capitalise your answers. 
+fields: 
+ - Full {Name}: STVinniesFullName
+   hint: eg. John Edward Smith
+ - What is your {address}?: STVinniesAddress
+   hint: eg. 10 Hope Drive, Adelaide SA 5000. 
+ - What is your {occupation}?: STVinniesOccupation
+   hint: eg. Labourer, Retail Worker, Vendor
+terms:
+  address: |
+    Your address should look like this: Street Address, Suburb, City, State, Postcode. If you are staying at the crisis centre, the address is 28 Whitmore Square, Adelaide SA 5000
+
+  occupation: |
+    What you do for a living. 
+
+  name: |
+    Include your first and last names, as will as your middle name if you have one.
+---

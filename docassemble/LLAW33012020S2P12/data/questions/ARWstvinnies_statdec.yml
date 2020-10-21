@@ -1,0 +1,30 @@
+---
+mandatory: true
+question: The following information will be put onto your statutory declaration. Please check for correct spelling and capitalisation.
+subquestion: |
+
+ question | your answer
+ ---------|-----------
+ Full Name | ${STVinniesFullName}
+ Address | ${STVinniesAddress}
+ Occupation | ${STVinniesOccupation}
+ 
+ Once you are satisfied that the above information is correct, you are able to download a copy of the completed form in the below box. If you would like to email yourself a copy, you can do so in the box below. 
+attachment: 
+ docx template file: south_australian_statutory_declaration_jinja.docx
+ 
+buttons:
+  - Exit: exit
+    url: http://www.courts.sa.gov.au/Pages/default.aspx
+  - Restart: restart
+---
+question: Statutory Declaration
+subquestion: Please fill in the following information for a statutory declaration. Please capitalise your answers. 
+fields: 
+ - Full Name: STVinniesFullName
+   hint: eg. John Edward Smith
+ - What is your address?: STVinniesAddress
+   hint: eg. 10 Hope Drive, Adelaide SA 5000. If you are staying at the crisis centre, the address is 28 Whitmore Square, Adelaide SA 5000
+ - What is your occupation?: STVinniesOccupation
+   hint: eg. Labourer, Retail Worker, Vendor
+---
