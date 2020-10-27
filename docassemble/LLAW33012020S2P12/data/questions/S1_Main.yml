@@ -36,7 +36,6 @@ include:
   - S1_ID_questions.yml
   - S1P12stat_dec_endpoint.yml
   - S1P12report_end.yml
-  - S1Need_Want_Identifier.yml
 ---
 code: |
   P12display_welcome_screen = True
@@ -108,14 +107,26 @@ subquestion: |
   % if P12identity_have.any_true():
   You have selected that you have some identification documents
   
-  *Would you like extra support from a statutory declaration?*
+  **Would you like extra support from a statutory declaration?**
+  
+  A **Stautory Declaration** is a statement of fact/s that you declare to be true and can be used as evidence. In this case, the **Statutory Declaration** can be used as a device to confirm the fact of your identity.
+  
+  You can attach documents to your **Statutory Declaration** in support of the declaration (e.g. a photograph).
+  
+  We will step you through filling out the fundamental portions of the form if you click 'Yes' and you will have an opportunity at the end to alter the document and include any other information you believe is helpful towards declaring your identity.
   
   % else:
   You have selected that you have no identification documents.
   
   You will need to either go to Centrelink for a temporary medicare/health card, or fill out a statutory declaration.
   
-  *Would you like us to help you fill out a statutory declaration?*
+  **Would you like us to help you fill out a statutory declaration?**
+  
+  A **Stautory Declaration** is a statement of fact/s that you declare to be true and can be used as evidence. In this case, the **Statutory Declaration** can be used as a device to confirm the fact of your identity.
+  
+  You can attach documents to your **Statutory Declaration** in support of the declaration of your identity (e.g. a photograph).
+  
+  We will step you through filling out the fundamental portions of the form if you click 'Yes' and you will have an opportunity at the end to alter the document and include any other information you believe is helpful towards declaring your identity.
   
   % endif
   

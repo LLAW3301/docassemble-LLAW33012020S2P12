@@ -2,106 +2,210 @@
 include:
   - S1_ID_questions.yml
   - S1_Main.yml
-  - S1Need_Want_Identifier.yml
 ---
 event: P12report_end
 question: Your Information
 subquestion: |
-  # Identity Document Information:
-  
+  # Identity Document Information: 
   % if P12identity_have.any_true():
-  You have indicated that you currently have a ${P12identity_have.true_values()}. You wish to apply for a ${P12identity_want.true_values()}. 
+  You have indicated that you currently have a **${P12identity_have.true_values()}**.
   
   % else:
   You have indicated that you do not have any identity documents. You wish to apply for a ${P12identity_want.true_values()}.
   % endif
-  
+
   % if P12identity_want['Medicare Card']:
-  
   # Medicare Card
- 
-  You already have ${P12what_I_have['Medicare Card']}.
+  You have indicated that you would like to apply for a medicare card.
   
-  At a basic level, you will need ${P12what_I_need['Medicare Card']}.
+  In order to obtain this form of identification, you will need **one** category A document from the list below:
   
-  More detailed instructions on the process of enrollment and what you will need for your specific circumstances can be found [here.](https://www.servicesaustralia.gov.au/individuals/subjects/how-enrol-and-get-started-medicare/enrolling-medicare) Note that there are also specific processes to aid Indigenous people through the enrollment. If you have queries about anything to do with enrollment you can call Medicare on 132 011. We recommend that you begin by filling out this [form](https://www.servicesaustralia.gov.au/individuals/forms/ms004) to start the application process.
-  % endif  
-  % if P12identity_want['Passport']:
+  - Australian Passport
+  - Birth Certificate
+  
+  As well as **two** Catgeory B document from below:
+  
+  - Proof of rental agreement
+  - Proof of job
+  - Proof of purchase of property
+  - Bank statement
+  - Proof of health insurance
+      
+  More detailed instructions on the process of enrollment and what you will need for your specific circumstances can be found [here.](https://www.servicesaustralia.gov.au/individuals/subjects/how-enrol-and-get-started-medicare/enrolling-medicare) 
+  Note that there are also specific processes to aid Indigenous people through the enrollment. 
+  If you have queries about anything to do with enrollment you can call Medicare on 132 011. 
+  We recommend that you begin by filling out this [form](https://www.servicesaustralia.gov.au/individuals/forms/ms004) to start the application process.
+  
+  You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
+  
+  % elif P12identity_want['Passport']:
   
   # Passport
+  You have indicated that you would like to apply for a passport.
   
-  You already have ${P12what_I_have['Passport']}.
+  You will need a birth certificate, as well as **one** Category A document from the following:
   
-  At a basic level, you will need ${P12what_I_need['Passport']}.
+  - Current Drivers Licence
+  - Proof of Age Card or Photo Card issued by an Australian State or Territory
   
-  More detailed instructions on the process of applying for a passport and what you will need for your specific circumstances can be found [here.](https://www.passports.gov.au/getting-passport-how-it-works) If you have issues or enquiries about the process you can call 131 232. We recommend starting this application process by signing up with [AusPassport](https://online.passports.gov.au/Infiniti/Produce/Account/Login?ReturnUrl=%2FInfiniti%2FProduce%2Fwizard%2F8100b655-57b0-47fb-84c2-44fdbbb02c02%2F)  
-  % endif   
-  % if P12identity_want['Drivers Licence']:
+  As well as **two** Category B documents:
+  
+  - Medicare Card
+  - Centrelink card
+  - Department of Veterans' Affairs Card
+  - Credit card or bank account card
+  - Foreign passport
+  
+  More detailed instructions on the process of applying for a passport and what you will need for your specific circumstances can be found [here.](https://www.passports.gov.au/getting-passport-how-it-works) 
+  
+  If you have issues or enquiries about the process you can call 131 232. 
+  
+  We recommend starting this application process by signing up with [AusPassport](https://online.passports.gov.au/Infiniti/Produce/Account/Login?ReturnUrl=%2FInfiniti%2FProduce%2Fwizard%2F8100b655-57b0-47fb-84c2-44fdbbb02c02%2F)  
+   
+  You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
+  
+  % elif P12identity_want['Drivers Licence']:
   
   # Drivers Licence
+  You have indicated that you would like to apply for a drivers licence.
   
-  You already have ${P12what_I_have['Drivers Licence']}.
+  In order to obtain a new licence replacement, all you will need is your dirvers licence number. If you do not have access to this or cannot remember the number, please call 131 232.
   
-  At a basic level, you will need ${P12what_I_need['Drivers Licence']}.
+  More information about applying for drivers licences generally can be found [here.](https://www.sa.gov.au/topics/driving-and-transport/licences) If you have any other queries, you can call 131 232.
   
-  If you have had a Drivers Licence before, you will need your Drivers Licence Number in order to apply for a replacement. If you require application for a Learner Permit, you need to have  either one primary and two secondary documents, or two primary with one secondary documents. Please visit this [website](https://www.sa.gov.au/topics/driving-and-transport/licences/tests/evidence-of-identity) to see what is accepted as 'primary' and 'secondary' identification. More information about applying for drivers licences generally can be found [here.](https://www.sa.gov.au/topics/driving-and-transport/licences) If you have urgent queries, you can call 131 232.
-  % endif 
-  % if P12identity_want['Proof of Age Card']:
+  You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
+  
+  % elif P12identity_want['Proof of Age Card']:
   
   # Proof of Age Card
+  You have indicated that you would like to apply for a proof of age card.
   
-  You already have ${P12what_I_have['Proof of Age Card']}.
+  You will need **one** primary document from the following:
   
-  At a basic level, you will need ${P12what_I_need['Proof of Age Card']}.
+  - Current Australian Passport or one that has expired within the last three years
+  - An Australian Births, Deaths and Marriages office issued full birth certificate showing parental details (a commemorative certificate or extract is not acceptable)
+  - South Australian Proof of Age Card
+  - Current interstate photo drivers licence
   
-  You can apply via the online [portal.](https://www.sa.gov.au/topics/driving-and-transport/licences/proof-of-age-card) If your ID has not yet been established with Services SA, you will need to apply for the card in person at Service SA. Please click [here](https://www.sa.gov.au/topics/driving-and-transport/licences/proof-of-age-card) for further information or contact Service SA via their online [platform.](https://www.sa.gov.au/contact-us>platform)
-  % endif   
-  % if P12identity_want['Birth Certificate']:
+  As well as **two** secondary documents from the following:
+  
+  - Medicare card
+  - Centrelink Pensioner Concession Card
+  - Health Care Card
+  - Department of Veterans Affairs entitlement card
+  - Proof of Age card
+  - Credit card or debit card
+  - Bank statement
+  - Letter from the Australian Tax Office
+  - Phone or utility bill
+  - Contract of sale
+  - Australian Tax Office Assessment
+  
+  You can apply via the online [portal.](https://www.sa.gov.au/topics/driving-and-transport/licences/proof-of-age-card) 
+  
+  If your ID has not yet been established with Services SA, you will need to apply for the card in person at Service SA. 
+  
+  Please click [here](https://www.sa.gov.au/topics/driving-and-transport/licences/proof-of-age-card) for further information or contact Service SA via their online [platform.](https://www.sa.gov.au/contact-us>platform)
+  
+  You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
+  
+  % elif P12identity_want['Birth Certificate']:
   
   # Birth Certificate
+  You have indicated tat you would like to apply for a birth certificate.
   
-  You already have ${P12what_I_have['Birth Certificate']}.
+  You will need **one** of the following combinations
   
-  At a basic level, you will need ${P12what_I_need['Birth Certificate']}.
+  - **Two** documents from **List 1**
+  - **One** document from **List 1** and **one** document from either **List 2** or **List 3**
+  - **One** document from **List 2** and **two** documents from **List 3**
+  - **Three** documents from **List 3**
   
-  Service SA allows for a variety of combination of identity documents in order to obtain a Birth Certificate:
-     - Two documents from list 1;
-     - One document from list 1 and one document from either list 2 or 3;
-     - One document from list 2 and two documents from list 3; or
-     - Three documents from list 3.
-    Please click [here](https://www.sa.gov.au/contact-us) for the documents contained in each list. If you have issues or enquiries, you can contact Service SA via their online [portal.](https://www.sa.gov.au/contact-us)
-  % endif 
-  % if P12identity_want['Seniors Card']:
+  List 1:
   
-  #Seniors Card
+  - Australian Passport
+  - Australian drivers licence
+  - Centrelink concession card
   
-  You already have ${P12what_I_have['Seniors Card']}.
+  List 2:
   
-  At a basic level, you will need ${P12what_I_need['Seniors Card']}.
+  - Overseas passport
+  - Aviation security ID card
+  - Medicare card
+  - Australian firearms licence
+  - Security guard licence
   
-  This card is issued **free of charge**. Please click [here](https://www.sa.gov.au/topics/family-and-community/seniors/seniors-card/apply-for-a-seniors-card) for further information. If you have issues or enquiries, you can also call 1800 819 961.
-  % endif 
-  % if P12identity_want['Tax File Number']:
+  List 3:
+  
+  - Mortgage documents
+  - Australian electoral enrollment
+  - Seniors card
+  - Superannuation fund statement
+  - Credit or debit card
+  - Australian Tax Office notice
+  - Telephone or mobile account
+  - Lease agreement
+  - Council rates notice
+  - Utility bill
+  
+  If you have issues or enquiries, you can contact Service SA via their online [portal.](https://www.sa.gov.au/contact-us)
+  
+  You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
+  
+  % elif P12identity_want['Seniors Card']:
+  
+  # Seniors Card  
+  You have indicated that you would like to apply for a seniors card.
+  
+  You will need **one** of the following:
+  
+  - Pension card number
+  - Medicare number
+  - Drivers licence number
+  
+  This card is issued **free of charge**. 
+  
+  Please click [here](https://www.sa.gov.au/topics/family-and-community/seniors/seniors-card/apply-for-a-seniors-card) for further information. 
+  
+  If you have issues or enquiries, you can also call 1800 819 961.
+  
+  You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
+  
+  % elif P12identity_want['Tax File Number']:
   
   # Tax File Number
+  You have indicated that you would like to apply for a tax file number.
   
-  You already have ${P12what_I_have['Tax File Number']}.
+  You will need **one** primary document from the following:
   
-  At a basic level, you will need ${P12what_I_need['Tax File Number']}.
+  - Australian full birth certificate (Extracts and commemorative certificates are not acceptable)
+  - Australian passport
+  - Australian citizenship certificate or Extract from Register of Citizenship by Descent
+  - Foreign passport
   
-  If you are **over 16 years old**, you will need three documents, one of which must be a primary source of identity. You can present a maximum of two secondary documents. 
+  As well as **two** secondary documents from the following:
+  
+  - Medicare card
+  - Bank statement
+  - Australian Firearm licence
+  - Student ID card
+  - Drivers licence
+  - Proof of age card
     
-  If you are **under 16 years old**, you will only need two documents, one of which much be primary. 
+  If you are **under 16 years old**, you will only need two documents, one of which must be primary and one secondary from the lists above. 
     
-  Please click [here](https://identityservice.auspost.com.au/ato/requirements/identityDocs) for what is accepted as 'primary' and 'secondary' sources of identity. An application can be made through a local Australia Post or online via the Australian Tax Office protal; please click [here](https://www.ato.gov.au/individuals/tax-file-number/apply-for-a-tfn/australian-residents---tfn-application/) for further information on the step by step processes. If you have any issues or enquiries, please call 13 28 61.
-  % endif  
-  % if P12identity_want['Bank Statements']:
+  An application can be made through a local Australia Post or online via the Australian Tax Office protal; please click [here](https://www.ato.gov.au/individuals/tax-file-number/apply-for-a-tfn/australian-residents---tfn-application/) for further information on the step by step processes. 
   
-  # Bank Statements
+  If you have any issues or enquiries, please call 13 28 61.
   
-  You already have ${P12what_I_have['Bank Statements']}.
+  You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.  
   
-  At a basic level, you will need ${P12what_I_need['Bank Statements']}.
+  % elif P12identity_want['Bank Statements']:
+  
+  # Bank Statements 
+  You have indicated that you would like a bank statement.
+  
+  You will need a bank account.
   
   The process of obtaining a Bank Statement depends on your bank and their processes. We recommend you get in touch with your bank to arrange this.
   

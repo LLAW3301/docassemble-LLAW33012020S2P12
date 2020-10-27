@@ -2,104 +2,14 @@
 variable name: P12need
 use objects: True
 data:
-  Medicare Card:
-    - Passport
-    - Birth Certificate
-    - Sale agreement and a gas/electricity bill in your name
-    - Lease agreement and a gas/electricity bill in your name
-    - Evidence of employment
-    - Evidence that you or your children are at school or university
-    - Evidence of private health insurance
-    - Bank accounts
-    - Property/contents insurance
-  Passport:
-    - Birth Certificate
-    - Australian Citizenship Certificate
-    - Any documents related to a change of name or gender (if needed)
-    - Drivers Licence
-    - Proof of Age Card
-    - Medicare Card
-    - Centrelink Card
-    - Department of Veterans Affairs Card
-    - Credit/bank account card
-    - Foreign passport
-    - Passport assport
-    - Motor Vehicle registration/insurance papers
-    - Property rates notice
-    - Property lease agreement
-    - Utilities Bills
-    - Bank Statement
-  Drivers Licence:
-    - Drivers Licence number
-    - Passport
-    - Birth Certificate
-    - Current Australian Visa
-    - Australian Government ImmiCard
-    - Australian Citizenship Certificate
-    - Proof of Age Card
-    - Aboriginal Population Record Certificate issued by the Northern Territory
-    - Medicare Card
-    - Pensioner Card
-    - Health Care Card
-    - Department of Veterans Affairs Card
-    - Employee photo identity card
-    - Credit/debit card
-    - Bank statement
-    - Letter from the Australian Tax Office, Centrelink or Medicare
-    - Australia Post issued Keypass ID Card
-    - Utilities Bills
-    - Council rates or land valuation notice
-    - Contract of sale or lease agreement
-    - Australian Defence Force photo identity card
-    - Defence Force Housing Agreement
-    - Evidence of enrolment to vote from Australian Electoral Commission
-  Proof of Age Card:
-    - Drivers Licence
-    - Learner Permit
-  Birth Certificate:
-    - Passport
-    - Drivers Licence
-    - Centrelink Consession Card
-    - Government employee ID photo card
-    - Overseas Drivers Licence
-    - Tertiary Student ID Card
-    - Overseas passport
-    - Aviation/maritime security ID card
-    - Medicare Card
-    - Australian firearms licence
-    - Security guard or crowd control licence
-    - Bank statement
-    - Council rates notice
-    - Utility Bills
-    - Proof of Age Card
-    - Tenancy or lease agreement
-    - Motor vehicle registration
-    - Telephone or mobile account
-    - Australian Tax Office Notice of Assessment
-    - Mortgage documents
-    - Australian Electoral Commission enrollment
-    - Seniors Card
-    - Superannuation Fund statement
-    - Certified academic university transcript
-    - Credit/debit card
-  Seniors Card:
-    - Drivers Licence
-    - Medicare Card
-    - Pension card
-  Tax File Number:
-    - Birth Certificate
-    - Passport
-    - Australian Citizenship Certficate
-    - Foreign Passport
-    - Medicare Card
-    - Bank statement
-    - Australian firearm licence
-    - Student identification card
-    - Drivers Licence
-    - Learner Permit
-    - Proof of Age Card
-  Bank Statements:
-    - A bank account   
+  - Medicare Card
+  - Passport
+  - Drivers Licence
+  - Proof of Age Card
+  - Birth Certificate
+  - Seniors Card
+  - Tax File Number
+  - Bank Statements 
 ---
 code: |
   P12what_I_need = {}

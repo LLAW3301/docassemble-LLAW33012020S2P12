@@ -70,7 +70,7 @@ subquestion: |
   % endif
   
 attachment: 
- docx template file: south_australian_statutory_declaration_jinja.docx
+ docx template file: Updated_Statutory_Declaration.docx
  
 buttons:
   - Exit: exit
