@@ -226,7 +226,8 @@ subquestion: |
   % endif
 
 attachment: 
-  docx template file: Updated_Statutory_Declaration.docx
+ docx template file: Updated_Statutory_Declaration.docx
+ 
 buttons:
   - Exit: exit
     url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
