@@ -5,36 +5,34 @@ subquestion:  |
   ***Do you have any of the following?***
 fields:
   - no label: P12identity_have
-    datatype: checkboxes
+    datatype: radio
     choices:
       - "[FILE SAlicence.jpg, 2in] Drivers Licence": Drivers Licence
+      - "[FILE statement.png, 2in] Bank Statement": Bank Statement
+      - "[FILE bc.gif, 1in] Birth Certificate": Birth Certificate
+      - "[FILE medicare.jpg, 2in] Medicare Card": Medicare Card
+      - "[FILE passport.jpg, 1in] Passport": Passport
       - "[FILE poac.jpg, 2in] Proof of Age Card": Proof of Age Card
       - "[FILE seniors.jpg, 2in] Seniors Card": Seniors Card
       - "[FILE tfn.png, 2in] Tax File Number": Tax File Number
-      - "[FILE bc.gif, 1in] Birth Certificate": Birth Certificate
-      - "[FILE passport.jpg, 1in] Passport": Passport
-      - "[FILE medicare.jpg, 2in] Medicare Card": Medicare Card
-      - "[FILE statement.png, 2in] Bank Statement": Bank Statement
       - "[FILE bills.png, 2in] Utility Bills": Utility Bills
 ---
 #to determine what ID docs the men would like to apply for - also unless they have a bank we may not be able to help them get statements(but most people should and can get their statements by speaking to their bank) and we may not be able to help them apply for utility bills
-decoration: id_want
 question: Identification Documents
 subquestion: |
   ***Which **one** of the following would you like to apply for?***
 fields:
  - no label: P12identity_want
-   datatype: checkboxes
+   datatype: radio
    choices:
       - "[FILE SAlicence.jpg, 2in] Drivers Licence": Drivers Licence
+      - "[FILE statement.png, 2in] Bank Statement": Bank Statement
+      - "[FILE bc.gif, 1in] Birth Certificate": Birth Certificate
+      - "[FILE medicare.jpg, 2in] Medicare Card": Medicare Card
+      - "[FILE passport.jpg, 1in] Passport": Passport
       - "[FILE poac.jpg, 2in] Proof of Age Card": Proof of Age Card
       - "[FILE seniors.jpg, 2in] Seniors Card": Seniors Card
       - "[FILE tfn.png, 2in] Tax File Number": Tax File Number
-      - "[FILE bc.gif, 1in] Birth Certificate": Birth Certificate
-      - "[FILE passport.jpg, 1in] Passport": Passport
-      - "[FILE medicare.jpg, 2in] Medicare Card": Medicare Card
-      - "[FILE statement.png, 2in] Bank Statement": Bank Statement
-   none of the above: False
 ---
 ## Image files.
 images:

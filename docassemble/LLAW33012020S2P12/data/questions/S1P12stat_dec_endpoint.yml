@@ -1,34 +1,23 @@
 ---
-include:
-  - S1_ID_questions.yml
-  - S1_Main.yml
----
-event: P12report_endpoint
 question: Your Information
 subquestion: |
+  
   # Identity Document Information: 
+
   % if P12identity_have.any_true():
-  You have indicated that you currently have a **${P12identity_have.true_values()}**. 
+  
+  You have indicated that you currently have:
+  % for P12item in P12identitiy_have:
+  - ${ P12item }
+  % endfor
   
   % else:
-  You have indicated that you do not have any identity documents. You wish to apply for a ${P12identity_want.true_values()}.
+  You have indicated that you do not have any identity documents. 
+  
   % endif
   
-  # Statutory Declaration Information:
-  
-  Topic | Your Answer
-  ---------|-----------
-  Full Name | ${STVinniesFullName}
-  Address | ${STVinniesAddress}
-  Occupation | ${STVinniesOccupation}
- 
-  If you have realised that some information is incorrect, you can download the editable word document version below. Once you are satisfied that the above information is correct, you are able to download a copy of the completed form in the below box. If you would like to email yourself a copy, you can do so in the box below. 
-  
-  Your Statutory Declaration will need to be signed by a **Justice of the Peace**. Please click [here](https://www.sa.gov.au/topics/rights-and-law/rights-and-responsibilities/justices-of-the-peace/find-a-jp) to find one close to you.
-  
-  **Before finalising the Statutory Declaration, we recommend that you seek legal advice to ensure the accuracy and truth of the document. You can click here [link P06] to seek free legal aid services.**
-
   % if P12identity_want['Medicare Card']:
+  
   # Medicare Card
   You have indicated that you would like to apply for a medicare card.
   
@@ -225,11 +214,34 @@ subquestion: |
   
   % endif
 
-attachment: 
- docx template file: Updated_Statutory_Declaration.docx
- 
-buttons:
-  - Exit: exit
-    url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
-  - Restart: restart
+  % if P12identity_have == 'False':
+  
+  # Statutory Declaration
+  
+  You have indicated that you do not have any form of identity documents. A **Statutory Declaration** might be a useful basis document to declare your identity. 
+    
+  A **Stautory Declaration** is a statement of fact/s that you declare to be true and can be used as evidence. In this case, the **Statutory Declaration** can be used as a device to confirm the fact of your identity.
+  
+  You can attach documents to your **Statutory Declaration** in support of the declaration of your identity (e.g. a photograph).
+  
+  We will step you through filling out the fundamental portions of the form if you click 'Yes' and you will have an opportunity at the end to alter the document and include any other information you believe is helpful towards declaring your identity.
+  
+  **Would you like help filling out a statutory declaration?**
+  
+  % elif:
+  You have indicated that you do have some identity documents. However, if you do not have all the documents required to apply for the identity you want, a **Statutory Declaration** might be a useful basis document to help declare your identity. 
+    
+  A **Stautory Declaration** is a statement of fact/s that you declare to be true and can be used as evidence. In this case, the **Statutory Declaration** can be used as a device to confirm the fact of your identity.
+  
+  You can attach documents to your **Statutory Declaration** in support of the declaration of your identity (e.g. a photograph).
+  
+  We can step you through filling out the fundamental portions of the form if you click 'Yes' and you will have an opportunity at the end to alter the document and include any other information you believe is helpful towards declaring your identity.
+  
+  **Would you like help filling out a statutory declaration?**
+  
+  % endif
+  
+fields: 
+  - no label: P12report
+    datatype: yesnoradio
 ---
