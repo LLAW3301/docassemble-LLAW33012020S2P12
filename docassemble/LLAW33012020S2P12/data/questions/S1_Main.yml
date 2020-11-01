@@ -27,7 +27,7 @@ code: |
     P12identity_want
     P12identity_have
     P12report
-    if P12report == True"
+    if P12report == True:
       P12_Stat_Dec
     else:
       P12end
