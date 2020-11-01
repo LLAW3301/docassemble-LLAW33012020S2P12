@@ -20,7 +20,7 @@ fields:
 #to determine what ID docs the men would like to apply for - also unless they have a bank we may not be able to help them get statements(but most people should and can get their statements by speaking to their bank) and we may not be able to help them apply for utility bills
 question: Identification Documents
 subquestion: |
-  ***Which **one** of the following would you like to apply for?***
+  ***Which one of the following would you like to apply for?***
 fields:
  - no label: P12identity_want
    datatype: radio
