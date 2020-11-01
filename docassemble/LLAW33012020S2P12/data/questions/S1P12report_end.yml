@@ -38,7 +38,7 @@ subquestion: |
   
   You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
   
-  % elif P12identity_want['Passport']:
+  % elif P12identity_want == 'Passport':
   
   # Passport
   You have indicated that you would like to apply for a passport.
@@ -64,7 +64,7 @@ subquestion: |
    
   You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
   
-  % elif P12identity_want['Drivers Licence']:
+  % elif P12identity_want == 'Drivers Licence':
   
   # Drivers Licence
   You have indicated that you would like to apply for a drivers licence.
@@ -75,7 +75,7 @@ subquestion: |
   
   You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
   
-  % elif P12identity_want['Proof of Age Card']:
+  % elif P12identity_want == 'Proof of Age Card':
   
   # Proof of Age Card
   You have indicated that you would like to apply for a proof of age card.
@@ -109,7 +109,7 @@ subquestion: |
   
   You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
   
-  % elif P12identity_want['Birth Certificate']:
+  % elif P12identity_want == 'Birth Certificate':
   
   # Birth Certificate
   You have indicated tat you would like to apply for a birth certificate.
@@ -152,7 +152,7 @@ subquestion: |
   
   You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
   
-  % elif P12identity_want['Seniors Card']:
+  % elif P12identity_want == 'Seniors Card':
   
   # Seniors Card  
   You have indicated that you would like to apply for a seniors card.
@@ -171,7 +171,7 @@ subquestion: |
   
   You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
   
-  % elif P12identity_want['Tax File Number']:
+  % elif P12identity_want == 'Tax File Number':
   
   # Tax File Number
   You have indicated that you would like to apply for a tax file number.
@@ -200,7 +200,7 @@ subquestion: |
   
   You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.  
   
-  % elif P12identity_want['Bank Statements']:
+  % elif P12identity_want == 'Bank Statements':
   
   # Bank Statements 
   You have indicated that you would like a bank statement.

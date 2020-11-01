@@ -5,7 +5,7 @@ subquestion:  |
   ***Do you have any of the following?***
 fields:
   - no label: P12identity_have
-    datatype: radio
+    datatype: checkboxes
     choices:
       - "[FILE SAlicence.jpg, 2in] Drivers Licence": Drivers Licence
       - "[FILE statement.png, 2in] Bank Statement": Bank Statement

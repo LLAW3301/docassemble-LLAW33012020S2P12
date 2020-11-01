@@ -6,7 +6,7 @@ subquestion: |
   % if P12identity_have.any_true():
   
   You have indicated that you currently have:
-  % for P12item in P12identitiy_have:
+  % for P12item in P12identity_have.true_values():
   - ${ P12item }
   % endfor
   
@@ -15,7 +15,7 @@ subquestion: |
   
   % endif
   
-  % if P12identity_want['Medicare Card']:
+  % if P12identity_want == 'Medicare Card':
   
   # Medicare Card
   You have indicated that you would like to apply for a medicare card.
@@ -227,7 +227,7 @@ subquestion: |
   
   **Would you like help filling out a statutory declaration?**
   
-  % elif:
+  % else:
   You have indicated that you do have some identity documents. However, if you do not have all the documents required to apply for the identity you want, a **Statutory Declaration** might be a useful basis document to help declare your identity. 
     
   A **Stautory Declaration** is a statement of fact/s that you declare to be true and can be used as evidence. In this case, the **Statutory Declaration** can be used as a device to confirm the fact of your identity.
