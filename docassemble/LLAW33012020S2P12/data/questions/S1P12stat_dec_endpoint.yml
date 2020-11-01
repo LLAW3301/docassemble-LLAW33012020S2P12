@@ -1,7 +1,6 @@
 ---
 question: Your Information
 subquestion: |
-  
   # Identity Document Information: 
 
   % if P12identity_have.any_true():
