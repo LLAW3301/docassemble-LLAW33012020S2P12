@@ -44,15 +44,34 @@ code: |
 event: P12welcome_screen
 question: Welcome!
 subquestion: |
-  Welcome to the St Vincent de Paul Crisis Centre Application! 
+  Welcome to the St Vincent de Paul Crisis Centre Application
   
-  This application will help you with legal aid services, court resources/contacts and identification documents. 
+  Are you are looking for:
+
+  % for SPitem in p12objectives:
+  - ${ SPitem }
+  % endfor
   
-  **Please note that this application is not legal advice, and you should seek advice from professionals to ensure accuracy in resolving your legal issues.**
+  
+  ##### Disclaimer
+  **This application does not provide legal advice. You should seek independent legal advice from a legal professional to ensure accuracy in resolving your legal issues.**
+  
+  **By clicking *I accept* you are agreeing to these terms.**
+  
+
 buttons:
   - I accept: continue
   - I do not accept: exit
     url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
+
+---
+# bullet list for the objectives of the app
+variable name: p12objectives
+use objects: True
+data:  
+  - Assistance with finding Lagal Aid Services
+  - Information about Court Resources or Contacts
+  - Applying for Identification Documents
 ---
 question: What do you need help with?
 subquestion: |
@@ -64,12 +83,21 @@ fields:
       - Court resources/contacts: court
       - Identification documents: identity
 ---
+variable name: p12courtsissue
+use objects: True
+data: 
+  - Court Dates
+  - Court Summons or Notice of a Lawsuit
+  - Court Documents
+---
 event: P12endpoint_1
 question: Your Next Steps...
 subquestion: |
   % if P12what_help == 'aid':
   # Legal Aid
-  Understanding the legal system is a difficult task for anyone. Legal aid is an affordable way to seek assistance with this, and any outstanding legal issues you might have. Please follow this link to connect to services most relevant to your current situation: [link]
+  **By clicking here [link] you will now be directed to another application which will help you with legal aid assistance for your current situation**
+  
+  Understanding the legal system is a difficult task for anyone. Legal aid is an affordable way to seek assistance with this, and any outstanding legal issues you might have. 
   
   Thank you for using the St Vincent de Paul Crisis Centre Application. We hope this was of assistance to you. If you would like to find out other information, click 'restart'. If not, click 'exit'.
   
@@ -83,12 +111,21 @@ subquestion: |
   
   **Live chat with them:** [Click here.](https://courtsa.courts.sa.gov.au/?q=node/160) 
   
-  We recommend that in addition to seeking support and advice from legal aid, you contact CourtSA for any urgent matters.
+  We recommend that in addition to seeking support and advice from legal aid, you contact CourtSA for any urgent inquries which can include:
+  
+    % for SPitem in p12courtsissue:
+  - ${ SPitem }
+  % endfor
+  
+  **Disclaimer**
+  CourtSA can only assist with legal cases that are in South Australia.
   
   ## Actioning a Current Matter
-  If you have a matter in court that you are aware of, and you intend to represent yourself, you can also create an account to access all of the relevant information for your matter and create actions on your matter. You can create an account [here.](https://courtsa.courts.sa.gov.au) Be sure to use their helpful guide. 
+  If you have a legal case in court and you intend to represent yourself, you will need to register and create an account on CourtSA by clicking [here.](https://courtsa.courts.sa.gov.au)
   
-  **We recommend first seeking legal aid services to better understand your situation. This system will NOT provide support in resolving your legal issues. It will only allow you to take action on matters. Seeking legal aid services first is highly recommended. If you later decide to represent yourself, this option remains.**
+  Once the account has been created you will have access to all of the relevant information for your case and create actions on your matter. Be sure to use their helpful guide. 
+  
+  **CourtSA will NOT provide support in resolving your legal issues. We recommend first going to the Community Legal Centre Locator Application [link to other app] to better understand your situation. CourtSA will only allow you to take action on existing legal cases. Seeking legal aid services first is highly recommended. If you later decide to represent yourself, this option remains.**
   
   Thank you for using the St Vincent de Paul Crisis Centre Application. We hope this was of assistance to you. If you would like to find out other information, click 'restart'. If not, click 'exit'.
   
