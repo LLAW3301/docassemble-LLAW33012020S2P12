@@ -70,7 +70,7 @@ subquestion: |
   % endif
   
 attachment: 
- docx template file: Updated_Statutory_Declaration.docx
+ docx template file: Updated_Statutory_Declaration2.docx
  
 buttons:
   - Exit: exit
