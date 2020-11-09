@@ -45,7 +45,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.LLAW33012020S2P12',
       version='0.0.1',
       description=('A docassemble extension.'),
-      long_description='# docassemble.LLAW33012020S2P12\r\n\r\nA docassemble extension.\r\n\r\n## Author\r\n\r\nMark Ferraretto, mark.ferraretto@flinders.edu.au\r\n\r\n',
+      long_description="# docassemble.LLAW33012020S2P12\r\n\r\nThis is our application for the St Vincent de Paul's Men's Crisis Centre.\r\nThe application has been written to help users in their journey to obtain identification documents relevant to them, find legal aid resources and also find basic court contacts.\r\nThe main aim of the application is to create an easy and simple platform through which the users can obtain basic information as well as further contacts and steps to follow to get where they want to go.\r\n\r\n",
       long_description_content_type='text/markdown',
       author='Helen Kremmidiotis',
       author_email='krem0008@flinders.edu.au',

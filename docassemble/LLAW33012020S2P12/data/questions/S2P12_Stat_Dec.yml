@@ -1,0 +1,28 @@
+---
+event: P12_Stat_Dec
+question: Your Statutory Declaration
+subquestion: |
+  # Statutory Declaration Information:
+  
+  Topic | Your Answer
+  ---------|-----------
+  Full Name | ${STVinniesFullName}
+  Address | ${STVinniesAddress}
+  Occupation | ${STVinniesOccupation}
+ 
+  Please see the word document below containing the above information. You can download this document to edit it according to the further instructions on the form. Please ensure you delete the red text before finalising you Statutory Declaration.
+  
+  Your Statutory Declaration will need to be signed by a **Justice of the Peace**. Please click [here](https://www.sa.gov.au/topics/rights-and-law/rights-and-responsibilities/justices-of-the-peace/find-a-jp) to find one close to you.
+  
+  **Before finalising the Statutory Declaration, we recommend that you seek legal advice to ensure the accuracy and truth of the document. You can click [here](https://docassemble.flinders.edu.au/interview?i=docassemble.playground178CLCSAGroupProject%3ACLCSA_Welcome_And_End_Screen.yml#page1) to seek free legal aid services.**
+  
+  If you would like to restart the application to find out other information about Legal Aid Services, Court Contacts/Resources, or other Identification Documents, click 'Restart'. If not, click 'Exit'.
+  
+attachment: 
+  docx template file: Updated_Statutory_Declaration2.docx
+  valid formats: docx
+buttons:
+  - Restart: restart
+  - Exit: exit
+    url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
+---

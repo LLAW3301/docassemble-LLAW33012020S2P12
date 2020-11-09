@@ -1,0 +1,247 @@
+---
+question: Your Information
+subquestion: |
+  # Identity Document Information: 
+
+  % if P12identity_have.any_true():
+  
+  You have indicated that you currently have: 
+  
+  % for P12item in P12identity_have.true_values():
+  - ${ P12item }
+  % endfor
+ 
+  % else:
+  You have indicated that you do not have any identity documents. 
+  
+  % endif
+  
+  % if P12identity_want == 'Medicare Card':
+  
+  # Medicare Card
+  You have indicated that you would like to apply for a Medicare Card.
+  
+  In order to obtain this form of identification, you will need **one** category A document from the list below:
+  
+  - Australian Passport
+  - Birth Certificate
+  
+  As well as **two** Catgeory B documents from below:
+  
+  - Bank statement
+  - Proof of health insurance
+  - Proof of job
+  - Proof of purchase of property
+  - Proof of rental agreement
+      
+  More detailed instructions on the process of enrollment and what you will need for your specific circumstances can be found [here.](https://www.servicesaustralia.gov.au/individuals/subjects/how-enrol-and-get-started-medicare/enrolling-medicare) 
+  Note that there are also specific processes to aid Indigenous people through the enrollment. 
+  If you have queries about anything to do with enrollment you can call Medicare on 132 011. 
+  We recommend that you begin by filling out this [form](https://www.servicesaustralia.gov.au/individuals/forms/ms004) to start the application process.
+  
+  You can run this application again to find out how to obtain the missing pieces of identity. Just click 'Restart'.
+  
+  % elif P12identity_want == 'Passport':
+  
+  # Passport
+  You have indicated that you would like to apply for a Passport.
+  
+  You will need a birth certificate, **one** Category A document from the following:
+  
+  - Current Drivers Licence
+  - Proof of Age Card or Photo Card issued by an Australian State or Territory
+  
+  As well as **two** Category B documents:
+  
+  - Centrelink card
+  - Credit card or bank account card
+  - Department of Veterans' Affairs Card
+  - Foreign passport
+  - Medicare Card
+  
+  More detailed instructions on the process of applying for a Passport and what you will need for your specific circumstances can be found [here.](https://www.passports.gov.au/getting-passport-how-it-works) 
+  
+  If you have issues or enquiries about the process you can call 131 232. 
+  
+  We recommend starting this application process by signing up with [AusPassport](https://online.passports.gov.au/Infiniti/Produce/Account/Login?ReturnUrl=%2FInfiniti%2FProduce%2Fwizard%2F8100b655-57b0-47fb-84c2-44fdbbb02c02%2F)  
+  
+  % elif P12identity_want == 'Drivers Licence':
+  
+  # Drivers Licence
+  You have indicated that you would like to apply for a drivers licence.
+  
+  In order to obtain a new licence replacement, all you will need is your dirvers licence number. If you do not have access to this or cannot remember the number, please call 131 232.
+  
+  More information about applying for drivers licences generally can be found [here.](https://www.sa.gov.au/topics/driving-and-transport/licences) If you have any other queries, you can call 131 232.
+  
+  % elif P12identity_want == 'Proof of Age Card':
+  
+  # Proof of Age Card
+  You have indicated that you would like to apply for a Proof of Age Card.
+  
+  You will need **one** primary document from the following:
+  
+  - An Australian Births, Deaths and Marriages office issued full birth certificate showing parental details (a commemorative certificate or extract is not acceptable)
+  - Current Australian Passport or one that has expired within the last three years
+  - Current interstate photo drivers licence
+  - South Australian Proof of Age Card
+
+  As well as **two** secondary documents from the following:
+  
+  - Australian Tax Office Assessment  
+  - Bank statement
+  - Centrelink Pensioner Concession Card
+  - Contract of sale
+  - Credit card or debit card
+  - Department of Veterans Affairs entitlement card
+  - Health Care Card
+  - Letter from the Australian Tax Office
+  - Medicare card
+  - Phone or utility bill
+  - Proof of Age card
+
+  You can apply via the online [portal.](https://www.sa.gov.au/topics/driving-and-transport/licences/proof-of-age-card) 
+  
+  If your ID has not yet been established with Services SA, you will need to apply for the card in person at Service SA. 
+  
+  Please click [here](https://www.sa.gov.au/topics/driving-and-transport/licences/proof-of-age-card) for further information or contact Service SA via their online [platform.](https://www.sa.gov.au/contact-us>platform)
+  
+  % elif P12identity_want == 'Birth Certificate':
+  
+  # Birth Certificate
+  You have indicated tat you would like to apply for a Birth Certificate.
+  
+  You will need **one** of the following combinations
+  
+  - **Two** documents from **List 1**
+  - **One** document from **List 1** and **one** document from either **List 2** or **List 3**
+  - **One** document from **List 2** and **two** documents from **List 3**
+  - **Three** documents from **List 3**
+  
+  List 1:
+  
+  - Australian Drivers Licence
+  - Australian Passport
+  - Centrelink Concession Card
+  
+  List 2:
+  
+  - Australian firearms licence
+  - Aviation security ID card
+  - Medicare card
+  - Overseas passport  
+  - Security guard licence
+  
+  List 3:
+  
+  - Australian electoral enrollment
+  - Australian Tax Office notice
+  - Council rates notice
+  - Credit or debit card
+  - Lease agreement
+  - Mortgage documents
+  - Seniors card
+  - Superannuation fund statement 
+  - Telephone or mobile account  
+  - Utility bill
+  
+  If you have any enquiries, you can contact Service SA via their online [portal.](https://www.sa.gov.au/contact-us)
+  
+  % elif P12identity_want == 'Seniors Card':
+  
+  # Seniors Card  
+  You have indicated that you would like to apply for a Seniors Card.
+  
+  You will need **one** of the following:
+  
+  - Drivers licence number
+  - Medicare number
+  - Pension card number
+  
+  Please click [here](https://www.sa.gov.au/topics/family-and-community/seniors/seniors-card/apply-for-a-seniors-card) for further information. 
+  
+  If you have any enquiries, you can call 1800 819 961.
+  
+  % elif P12identity_want == 'Tax File Number':
+  
+  # Tax File Number
+  You have indicated that you would like to apply for a Tax File Number.
+  
+  You will need **one** primary document from the following:
+  
+  - Australian citizenship certificate or Extract from Register of Citizenship by Descent
+  - Australian full birth certificate (Extracts and commemorative certificates are not acceptable)
+  - Australian passport  
+  - Foreign passport
+  
+  As well as **two** secondary documents from the following:
+  
+  - Australian Firearm licence
+  - Bank statement
+  - Drivers licence
+  - Medicare card
+  - Proof of age card 
+  - Student ID card
+    
+  If you are **under 16 years old**, you will only need two documents, one of which must be primary and one secondary from the lists above. 
+    
+  An application can be made through a local Australia Post or online via the Australian Tax Office protal; please click [here](https://www.ato.gov.au/individuals/tax-file-number/apply-for-a-tfn/australian-residents---tfn-application/) for further information on the step by step processes. 
+  
+  If you have any enquiries, you can call 13 28 61.
+  
+  % elif P12identity_want == 'Bank Statements':
+  
+  # Bank Statements 
+  You have indicated that you would like a bank statement.
+  
+  You will need a bank account.
+  
+  If you already have a bank account, the process of obtaining a Bank Statement depends on your bank and their processes. We recommend you get in touch with your bank to arrange this.
+  
+  If you would like to open a bank account, you will need **two** of the following to set up an account online:
+  
+  - Australian driver’s licence
+  - Australian Medicare card
+  - Australian Passport (current or one that has expired within the last 2 years)
+  - Australian Visa in foreign passport
+
+  Each bank has slightly different requirements so please go and click on the some of the following to find out more:
+  
+  - [ANZ](https://www.anz.com.au/personal/bank-accounts/open-account/)
+  - [Beyond Bank](https://www.beyondbank.com.au/personal-banking/accounts.html)
+  - [Bendigo Bank](https://www.bendigobank.com.au/personal/transaction-accounts/everyday-account/)
+  - [Commonwealth Bank](https://www.commbank.com.au/banking.html?ei=mv_banking)
+  - [NAB](https://www.nab.com.au)
+  - [Westpac](https://www.westpac.com.au/personal-banking/bank-accounts/)
+  
+  % endif
+
+  % if P12identity_have.any_true():  
+  
+  # Statutory Declaration 
+  
+  You have indicated that you do have some identity documents. However, if you do not have all the documents required to apply for the identity you want, a **Statutory Declaration** might be a useful basis document to help declare your identity. 
+    
+  A **Stautory Declaration** is a statement of fact/s that you declare to be true and can be used as evidence. In this case, the **Statutory Declaration** can be used as a device to confirm the fact of your identity.
+  
+  We will step you through filling out the fundamental portions of the form if you click 'Yes' and you will have an opportunity at the end to alter the document and include any other information you believe is helpful towards declaring your identity.
+  
+  **Would you like help filling out a statutory declaration?**
+  
+  % else:
+  
+  # Statutory Declaration 
+   You have indicated that you do not have any form of identity documents. A **Statutory Declaration** might be a useful basis document to declare your identity.  
+    
+  A **Stautory Declaration** is a statement of fact/s that you declare to be true and can be used as evidence. In this case, the **Statutory Declaration** can be used as a device to confirm the fact of your identity.
+  
+  We can step you through filling out the fundamental portions of the form if you click 'Yes' and you will have an opportunity at the end to alter the document and include any other information you believe is helpful towards declaring your identity.
+  
+  **Would you like help filling out a statutory declaration?**
+  
+  % endif
+  
+fields: 
+  - no label: P12report
+    datatype: yesnoradio
+---
