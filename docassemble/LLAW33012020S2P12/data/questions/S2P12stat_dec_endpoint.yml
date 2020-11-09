@@ -189,7 +189,7 @@ subquestion: |
   
   If you have any enquiries, you can call 13 28 61.
   
-  % elif P12identity_want == 'Bank Statements':
+  % elif P12identity_want == 'Bank Statement':
   
   # Bank Statements 
   You have indicated that you would like a bank statement.
