@@ -1,0 +1,33 @@
+---
+variable name: P12need
+use objects: True
+data:
+  - Medicare Card
+  - Passport
+  - Drivers Licence
+  - Proof of Age Card
+  - Birth Certificate
+  - Seniors Card
+  - Tax File Number
+  - Bank Statements 
+---
+code: |
+  P12what_I_need = {}
+  for P12item in P12identity_want.true_values():
+    P12what_I_need[P12item] = []
+    for P12need_element in P12need[P12item]:
+      if P12need_element in P12identity_have.true_values():
+        pass
+      else:
+        P12what_I_need[P12item].append(P12need_element)
+---
+code: |
+  P12what_I_have = {}
+  for P12item in P12identity_want.true_values():
+    P12what_I_have[P12item] = []
+    for P12need_element in P12need[P12item]:
+      if P12need_element in P12identity_have.true_values():
+        P12what_I_have[P12item].append(P12need_element)
+      else:
+        pass
+---

@@ -1,0 +1,112 @@
+---
+# Mandatory code block that will drive the entire application
+mandatory: True
+code: |
+  P12display_welcome_screen
+  P12what_help 
+  
+  if P12what_help == 'aid' or P12what_help == 'court':
+    P12endpoint_1
+  
+  else:
+    P12identity_have
+    P12identity_want
+    P12identity_stat_dec
+      if P12identity_stat_dec == True:
+        P12report_endpoint
+      else:
+        P12report_end
+
+---
+include:
+  - P12_ID_questions.yml
+  - P12stat_dec_endpoint.yml
+  - P12report_end.yml
+---
+code: |
+  P12display_welcome_screen = True
+  force_ask('P12welcome_screen')
+---
+event: P12welcome_screen
+question: Welcome!
+subquestion: |
+  Welcome to the St Vincent de Paul Crisis Centre Application! 
+  
+  This application will help you with legal aid services, court resources/contacts and identification documents. 
+  
+  **Please note that this application is not legal advice, and you should seek advice from professionals to ensure accuracy in resolving your legal issues.**
+buttons:
+  - I accept: continue
+  - I do not accept: exit
+    url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
+---
+question: What do you need help with?
+subquestion: |
+fields: 
+  - no label: P12what_help
+    datatype: radio
+    choices:
+      - Legal aid services: aid
+      - Court resources/contacts: court
+      - Identification documents: identity
+---
+event: P12endpoint_1
+question: Your Next Steps...
+subquestion: |
+  % if P12what_help == 'aid':
+  # Legal Aid
+  Understanding the legal system is a difficult task for anyone. Legal aid is an affordable way to seek assistance with this, and any outstanding legal issues you might have. Please follow this link to connect to services most relevant to your current situation: [link]
+  
+  Thank you for using the St Vincent de Paul Crisis Centre Application. We hope this was of assistance to you. If you would like to find out other information, click 'restart'. If not, click 'exit'.
+  
+  % elif P12what_help == 'court':
+  # CourtSA
+  CourtSA is a one-stop-shop for your court enquiries. 
+  
+  **Call them:** +61 8 8204 2444 or Freecall 1800 571 191
+  
+  **Email them:** enquiries@courts.sa.gov.au 
+  
+  **Live chat with them:** https://courtsa.courts.sa.gov.au/?q=node/160 
+  
+  We recommend that in addition to seeking support and advice from legal aid, you contact CourtSA for any urgent matters.
+  
+  ## Actioning a Current Matter
+  If you have a matter in court that you are aware of, and you intend to represent yourself, you can also create an account to access all of the relevant information for your matter and create actions on your matter. You can create an account here: https://courtsa.courts.sa.gov.au . Be sure to use their helpful guide. 
+  
+  **We recommend first seeking legal aid services to better understand your situation. This system will NOT provide support in resolving your legal issues. It will only allow you to take action on matters. Seeking legal aid services first is highly recommended. If you later decide to represent yourself, this option remains.**
+  
+  Thank you for using the St Vincent de Paul Crisis Centre Application. We hope this was of assistance to you. If you would like to find out other information, click 'restart'. If not, click 'exit'.
+  
+  % else:
+  pass
+  
+  % endif
+  
+buttons:
+  - Restart: restart
+  - Exit: exit
+    url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
+---
+question: Statutory Declaration
+subquestion: |
+  % if P12identity_have.any_true():
+  You have selected that you have some identification documents
+  *Would you like extra support from a statutory declaration?*
+  
+  % else:
+  You have selected that you have no identification documents.
+  
+  You will need to either go to Centrelink for a temporary medicare/health card, or fill out a statutory declaration.
+  
+  *Would you like us to help you fill out a statutory declaration?*
+  
+  % endif
+  
+fields: 
+  - no label: P12identity_stat_dec
+    datatype: radio
+    choices:
+      - Yes: P12report_endpoint
+      - No: P12report_end
+---

@@ -1,0 +1,67 @@
+variable name: need_id
+use objects: True
+data:
+  Medicare Card:
+      - Passport
+      - Birth Certificate
+  Passport:
+    - Birth certificate
+    - Bank Statement
+    - Gas Bill
+---
+question: what do you have
+fields:
+  - no label: I_have
+    datatype: checkboxes
+    choices:
+      - Passport
+      - Birth Certificate
+      - Medicare Card
+      - Bank Statement
+      - Gas Bill
+---
+question: what do you want
+fields:
+  - no label: I_want
+    datatype: checkboxes
+    choices:
+      - Passport
+      - Birth Certificate
+      - Medicare Card
+      - Bank Statement
+      - Gas Bill
+---
+code: |
+  what_I_need = {}
+  for item in I_want.true_values():
+    what_I_need[item] = []
+    for need_element in need_id[item]:
+      if need_element in I_have.true_values():
+        pass
+      else:
+        what_I_need[item].append(need_element)
+---
+code: |
+  what_I_have = {}
+  for item in I_want.true_values():
+    what_I_have[item] = []
+    for need_element in need_id[item]:
+      if need_element in I_have.true_values():
+        what_I_have[item].append(need_element)
+      else:
+        pass
+---
+mandatory: True
+question: Something
+subquestion: |
+  You want: ${I_want.true_values()}
+  
+  You have: ${I_have.true_values()}
+  
+  %if I_want['Medicare Card']:
+  You already have ${what_I_have['Medicare Card']}
+  
+  You need ${what_I_need['Medicare Card']}
+  
+  %endif
+---

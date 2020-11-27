@@ -1,0 +1,177 @@
+---
+# S2 Requirement Checklist
+features:
+  debug: False
+  hide standard menu: True
+---
+# S2 Requirement Checklist
+metadata:
+  title: |
+    St Vincent de Paul Men's Crisis Centre Legal and Identification Help Service
+  short title: |
+    Crisis Centre
+  description: |
+    A help directory for clients at the Crisis Centre to use for finding legal aid services, court contacts and identification document information.
+  authors:
+    - name: Helen Kremmidiotis
+      organization: Flinders University
+    - name: Janelle Chaptini
+      organization: Flinders University
+    - name: Alia Rafferty-Warhurst
+      organization: Flinders University
+    - name: Sera Pellizzari
+      organization: Flinders University
+    - name: Henry Gill
+      organization: Flinders University
+---
+# S2 Requirement Checklist
+default screen parts:
+  post: |
+    <div style="display: flex; height: 200px; align-items: flex-end; flex-direction: row-reverse">
+    <div style="margin: 5px"><img src="https://staff.flinders.edu.au/etc.clientlibs/flinders/clientlibs/clientlib-site/resources/images/flinderuni_main_logo_black.png" height="40">
+    </div>
+    <div style="margin: 5px; text-align: center">
+    <cite><small><i>
+    Developed by Flinders University in collaboration with St Vincent de Paul Men's Crisis Centre
+    </i></small></cite>
+    </div>
+    </div>
+---
+# The St Vincent de Paul Logo
+objects:
+  - HKlogo: DAStaticFile.using(filename='Vinnies_Logo.png')
+---
+# The St Vincent de Paul Logo
+mandatory: True
+code: |
+  set_parts(logo='<img src="' + HKlogo.url_for() + '" style="height: 50px;">')
+---
+# Colour design
+features:
+  css: C5_Assessment_Design.css
+  debug: True
+  hide standard menu: False
+---
+# Mandatory code block that will drive the entire application
+mandatory: True
+code: |
+  P12display_welcome_screen
+  P12what_help 
+  
+  if P12what_help == 'aid' or P12what_help == 'court':
+    P12endpoint_1
+  
+  else:
+    P12identity_want
+    P12identity_have
+    P12report
+    if P12report == True:
+      P12_Stat_Dec
+    else:
+      P12endpoint_2
+---
+include:
+  - S2P12_ID_questions.yml
+  - S2P12stat_dec_endpoint.yml
+  - S2P12_Stat_Dec.yml
+---
+code: |
+  P12display_welcome_screen = True
+  force_ask('P12welcome_screen')
+---
+# Welcome screen which includes a brief outline of application and a disclaimer
+event: P12welcome_screen
+question: Welcome!
+subquestion: |
+  Welcome to the St Vincent de Paul Crisis Centre Application
+  
+  This application will help you with the following:
+
+  - Assistance with finding affordable **Legal Aid Services** to help with legal issues;
+  - Information about **Court Contacts** for any enquiries you might have about court dates, court resources or appearing in court; and
+  - Information to help you apply for **Identification Documents**.
+  
+  
+  ##### Disclaimer
+  **This application does not provide legal advice. You should seek independent legal advice from a legal professional to ensure accuracy in resolving your legal issues.**
+  
+  **By clicking 'I accept' you are agreeing to these terms.**
+  
+buttons:
+  - I accept: continue
+  - I do not accept: exit
+    url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
+---
+# Determing what information will be presented to the user
+question: What do you need help with?
+subquestion: |
+fields: 
+  - no label: P12what_help
+    datatype: radio
+    choices:
+      - Legal Aid Services: aid
+      - Court Resources/Contacts: court
+      - Identification Documents: identity
+---
+# The endpoint for Legal Aid Services and Court Contacts
+event: P12endpoint_1
+question: Your Next Steps...
+subquestion: |
+  % if P12what_help == 'aid':
+  # Legal Aid
+  Please click [here](https://docassemble.flinders.edu.au/interview?i=docassemble.playground178CLCSAGroupProject%3ACLCSA_Welcome_And_End_Screen.yml#page1) for the Community Legal Centre Locator Application that will help you to find Legal Aid Services suitable for you.
+  
+  Understanding the legal system is a difficult task for anyone. Legal aid is an affordable way to seek assistance with this, and any outstanding legal issues you might have. 
+  
+  Thank you for using the St Vincent de Paul Crisis Centre Application. We hope this was of assistance to you. If you would like to find out other information, click 'restart'. If not, click 'exit'.
+  
+  % elif P12what_help == 'court':
+  # CourtSA
+  CourtSA is a one-stop-shop for your court enquiries. 
+  
+  **Call them:** +61 8 8204 2444 or Freecall 1800 571 191
+  
+  **Email them:** <enquiries@courts.sa.gov.au> 
+  
+  **Live chat with them:** [Click here.](https://courtsa.courts.sa.gov.au/?q=node/160) 
+  
+  We recommend that in addition to seeking support and advice from legal aid, you contact CourtSA for any urgent inquries which can include:
+  
+  - Court dates;
+  - Information about going to court; and
+  - Court resources available to you.
+  
+  **Disclaimer**
+  CourtSA is strictly limited to information about courts in South Australia.
+  
+  ## Actioning a Current Matter
+  If you have a legal case in court and you intend to represent yourself, you can register and create an account on CourtSA by clicking [here.](https://courtsa.courts.sa.gov.au)
+  
+  Once the account has been created you will have access to all of the relevant information for your case and create actions on your matter. Be sure to use their helpful guide. 
+  
+  **CourtSA will NOT provide support in resolving your legal issues. We recommend first going to the [Community Legal Centre Locator Application](https://docassemble.flinders.edu.au/interview?i=docassemble.playground178CLCSAGroupProject%3ACLCSA_Welcome_And_End_Screen.yml#page1) to better understand your situation. CourtSA will only allow you to take action on existing legal cases. Seeking legal aid services first is highly recommended. If you later decide to represent yourself, this option remains.**
+  
+  Thank you for using the St Vincent de Paul Crisis Centre Application. We hope this was of assistance to you. If you would like to find out other information, click 'restart'. If not, click 'exit'.
+  
+  % else:
+  pass
+  
+  % endif
+  
+buttons:
+  - Restart: restart
+  - Exit: exit
+    url: https://www.vinnies.org.au/page/Find_Help/SA/Housing/Vincentian_Centre/
+---
+# Endpoint for when user does not want assistance from a statutory declaration for ID
+event: P12endpoint_2
+question: Your next steps...
+subquestion: |
+  You have indicated that you did not want assistance from a statutory declaration. 
+  
+  If you would like further information about how to obtain other forms of Identitification Documents, or would like to explore Legal Aid Services, or Court Contacts/Resources, please click 'Restart'. If you would like to exit, click 'Exit'.
+  
+buttons:
+  - Restart: restart
+  - Exit: exit
+---
