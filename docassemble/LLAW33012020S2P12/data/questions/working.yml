@@ -1,0 +1,158 @@
+---
+variable name: id_requirements
+use objects: True
+data:
+  passport:
+    birth_certificate: 1
+    category_a: 1
+    category_b: 2
+  medicare_card:
+    category_a: 1
+    category_b: 2
+  drivers_licence:
+    specific:
+      - drivers_licence_number
+  seniors_card:
+    specific:
+      - pension_card_number
+      - medicare_number
+      - drivers_licence_number
+
+---
+variable name: card_categories
+use objects: True
+data:
+  birth_certificate:
+    passport:
+      - birth_certificate
+  category_a:
+    passport:
+      - drivers_licence
+      - proof_of_age_card
+    medicare_card:
+      - passport
+      - birth_certificate
+  category_b:
+    passport:
+      - medicare_card
+      - centrelink_card
+      - dva_card
+      - credit_debit_card
+      - foreign_passport
+    medicare_card:
+      - rental_agreement
+      - proof_of_job
+      - proof_of_property_purchase
+      - bank_statement
+      - proof_of_health_insurance
+  primary:
+    drivers_licence:
+      - passport
+      - birth_certificate
+      - proof_of_age_card
+      - interstate_photo_licence
+  secondary:
+    drivers_licence:
+      - medicare_card
+      - concession_card
+      - health_care_card
+---
+variable name: id_doc_info
+use objects: True
+data:
+  centrelink_card: Centrelink Card
+  credit_debit_card: Credit card or bank account card
+  drivers_licence: Current Drivers Licence
+  dva_card: Department of Veterans Affairs Card
+  medicare_card: Medicare Card
+  passport: Current Australian Passport
+  proof_of_age_card: Proof of Age card or Photo card issued by an Australian state or territory
+---
+question: What ID do you need?
+fields:
+  - no label: id_requested
+    datatype: radio
+    choices:
+      - Passport: passport
+      - Medicare card: medicare_card
+      - Drivers Licence: drivers_licence
+      - Seniors Card: seniors_card
+      - Tax File Number: tax_file_number
+---
+question: What ID do you have?
+fields:
+  - no label: ids_in_possession
+    datatype: checkboxes
+    choices:
+      - Passport: passport
+      - Medicare Card: medicare_card
+      - Department of Veterans Affairs Card: dva_card
+      - Proof of age card: proof_of_age_card
+---
+# Work out what kinds of documents required
+code: |
+  # Get the dictionary with the documents required
+  what_we_need = id_requirements[id_requested]
+
+  # Iterate through each category
+  for a_category in what_we_need.keys():
+    # How many documents do we need from this category?
+    num_of_docs_required = what_we_need[a_category]
+
+    # Get a list of documents for this category
+    cat_docs_list = card_categories[a_category][id_requested]
+
+    # How many documents do I have in this list already?
+    docs_i_have = 0
+    for a_doc in ids_in_possession.true_values():
+      if a_doc in cat_docs_list:
+        docs_i_have = docs_i_have + 1
+    
+    # 
+---
+## Primary and secondary documents required for different types of ID.
+variable name: required_documents
+use objects: True
+data:
+  drivers_licence:
+    Name: Drivers Licence
+    primary_docs: 1
+    secondary_docs: 2
+    id_type: primary
+  proof_of_age:
+    Name: Proof of Age Card
+    primary_docs: 1
+    secondary_docs: 2
+    id_type: primary
+  tax_file_number:
+    Name: Tax File Number
+    primary_docs: 1
+    secondary_docs: 2
+    id_type: secondary
+  birth_certificate:
+    Name: Birth Certificate
+    primary_docs: 1
+    secondary_docs: 2
+    id_type: primary
+  passport:
+    Name: Passport
+    primary_docs: 1
+    secondary_docs: 1
+    id_type: primary
+  seniors_card:
+    Name: Seniors Card
+    primary_docs: 1
+    secondary_docs: 0
+    id_type: secondary
+  medicare_card:
+    Name: Medicare Card
+    primary_docs: 2
+    secondary_docs: 2
+    id_type: secondary
+  centrelink_card:
+    Name: Centrelink Health Care Card
+    primary_docs: 1
+    secondary_docs: 1
+    id_type: secondary
+    
+
