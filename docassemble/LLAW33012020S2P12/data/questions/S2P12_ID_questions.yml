@@ -53,13 +53,10 @@ subquestion: Please fill in the following information for a statutory declaratio
 fields: 
  - Full {Name}: STVinniesFullName
    hint: eg. John Edward Smith
-   default: Helen Kremmidiotis
  - What is your {address}?: STVinniesAddress
    hint: eg. 10 Hope Drive, Adelaide SA 5000 
-   default: 28 Whitmore Square, Adelaide SA 5000
  - What is your {occupation}?: STVinniesOccupation
    hint: eg. Labourer, Retail Worker, Vendor
-   default: Unemployed
 terms:
   address: |
     Your address should look like this: Street Address, Suburb, State, Postcode. If you are staying at the Crisis Centre, the address is 28 Whitmore Square, Adelaide SA 5000.
